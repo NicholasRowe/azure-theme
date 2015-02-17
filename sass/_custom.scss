@@ -24,7 +24,7 @@ aside {
 	background: #fff;
 	.entry-content {
 		&:first-letter { 
-			font-size: 200%;
+			font-size: 300%;
 			color: #8A2BE2;
 		}
 		p {
@@ -47,20 +47,22 @@ aside {
 
 .site-header {
 	position: relative;
+
+}
+
+.site-menu {
+	@include respond(phones) {
+		display: none;
+	}
 }
 
 .skip-link {
 	display: none;
 }
 
-.nav-menu {
-	@include respond(phones) {
-		display: none;
-	}
-}
+
 
 .main-navigation {
-	background: blue;
 	padding: 2rem;
 }
 

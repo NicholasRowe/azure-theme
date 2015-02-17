@@ -1701,7 +1701,7 @@ aside { width: 31.91489%; }
 @media only screen and (max-width: 767px) { aside { float: left; margin-left: 0; width: 100%; } }
 
 .post { -webkit-box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09); box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09); margin-bottom: 80px; position: relative; background: #fff; }
-.post .entry-content:first-letter { font-size: 200%; color: #8A2BE2; }
+.post .entry-content:first-letter { font-size: 300%; color: #8A2BE2; }
 
 .entry-content { padding: 40px 50px; }
 @media only screen and (phones) { .entry-content { padding: 20px 30px; } }
@@ -1710,11 +1710,11 @@ aside { width: 31.91489%; }
 
 .site-header { position: relative; }
 
+@media only screen and (phones) { .site-menu { display: none; } }
+
 .skip-link { display: none; }
 
-@media only screen and (phones) { .nav-menu { display: none; } }
-
-.main-navigation { background: blue; padding: 2rem; }
+.main-navigation { padding: 2rem; }
 
 .menu { cursor: pointer; position: absolute; width: 20px; height: 14px; top: 50%; margin-top: -10px; border: 0; background-color: transparent; outline: 0; padding: 0; }
 .menu:hover, .menu:focus { background-color: transparent; }
