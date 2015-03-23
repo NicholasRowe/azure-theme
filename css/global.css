@@ -1,0 +1,127 @@
+/* - Mixins
+------------------------------------------------- 
+    Description: Useful mixins
+    Author: Nick Rowe - Prodo Digital
+    Author URL: http://www.prodo.com
+*/
+/*=====================================================
+  Placeholder
+======================================================*/
+/*=====================================================
+  Border radius mixins
+======================================================*/
+/*=====================================================
+  Cross browser opacity
+======================================================*/
+/*=====================================================
+  Transition
+======================================================*/
+/*=====================================================
+  Box shadows
+======================================================*/
+/*=====================================================
+  Triangle Shape
+
+  @include triangle within a pseudo element and add positioning properties (ie. top, left)
+  $direction: up, down, left, right
+======================================================*/
+/*=====================================================
+  SVG fallback for invisbile gradient
+
+  Sass mixin for SVG with fallback support using the invisible gradient technique
+  http://pauginer.com/post/36614680636/invisible-gradient-technique
+======================================================*/
+.container {
+  width: 100%;
+  max-width: 1200px;
+  min-width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px; }
+  .container .row {
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0; }
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  background-color: #f9fafc; }
+
+main {
+  margin: 0; }
+
+
+.post {
+  -webkit-box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09);
+  box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09);
+  margin-bottom: 80px;
+  position: relative;
+  background: white; }
+  .post .entry-content:first-letter {
+    font-size: 300%;
+    color: blueviolet; }
+
+.entry-content {
+  padding: 40px 50px; }
+  @media only screen and (min-width:lower-bound(40.063em, 64em)) {
+    .entry-content {
+      padding: 100px; } }
+
+.entry-header {
+  text-align: center; }
+
+.site-header {
+  position: relative; }
+
+
+.skip-link {
+  display: none; }
+
+.main-navigation {
+  padding: 2rem; }
+
+.menu {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 14px;
+  top: 50%;
+  margin-top: -10px;
+  border: 0;
+  background-color: transparent;
+  outline: 0;
+  padding: 0; }
+  .menu:hover, .menu:focus {
+    background-color: transparent; }
+  .menu .menu-global {
+    position: absolute;
+    left: 0;
+    border-top: 2px solid white;
+    width: 100%;
+    transition: 0.55s;
+    -webkit-transition: 0.55s; }
+  .menu .menu-top {
+    top: 0; }
+  .menu .menu-middle {
+    top: 6px; }
+  .menu .menu-bottom {
+    top: 12px; }
+  .menu .menu-top-click {
+    top: 6px;
+    transform: rotate(50deg);
+    -webkit-transform: rotate(50deg);
+    transition: 0.55s 0.5s;
+    -webkit-transition: 0.55s 0.5s; }
+  .menu .menu-middle-click {
+    opacity: 0; }
+  .menu .menu-bottom-click {
+    top: 6px;
+    transform: rotate(-410deg);
+    -webkit-transform: rotate(-410deg);
+    transition: 0.55s 0.5s;
+    -webkit-transition: 0.55s 0.5s; }
