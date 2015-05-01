@@ -1,15 +1,57 @@
+@import "reset";
 @import "mixins";
 @import "framework";
 
+// Import Google Web Fonts
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
 html {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 *, *:before, *:after {
-  box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
 }
 
 body {
 	background-color: rgb(249, 250, 252);
+	font-family: 'Open Sans', sans-serif;
+	color: #5A5A5A;
+	font-weight: 100;
+}
+
+a {
+	text-decoration: none;
+	font-weight: 600;
+	color: #000;
+}
+
+p {
+	margin-bottom: 50px;
+}
+
+.entry-title {
+
+}
+
+.entry-header {
+	.wp-post-image {
+		margin-bottom: 50px;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 50px;
+	margin-bottom: 1.5rem;
+	font-size: 50px;
+	color: #777777;
+	a {
+		color: #777777;
+	}
 }
 
 
@@ -29,10 +71,7 @@ aside {
 	position: relative;
 	background: #fff;
 	.entry-content {
-		&:first-letter { 
-			font-size: 300%;
-			color: #8A2BE2;
-		}
+
 		p {
 
 		}
@@ -42,10 +81,10 @@ aside {
 .entry-content {
 	padding: 40px 50px;
 
-		@media #{$medium-up} {
-			padding: 100px;
-		}
-		
+	@media #{$medium-up} {
+		padding: 100px;
+	}
+
 }
 
 .entry-header {
@@ -58,9 +97,7 @@ aside {
 }
 
 .site-menu {
-	// @include respond(phones) {
-	// 	display: none;
-	// }
+	display: none;
 }
 
 .skip-link {

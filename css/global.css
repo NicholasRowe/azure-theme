@@ -1,3 +1,36 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 /* - Mixins
 ------------------------------------------------- 
     Description: Useful mixins
@@ -31,10 +64,10 @@
   Sass mixin for SVG with fallback support using the invisible gradient technique
   http://pauginer.com/post/36614680636/invisible-gradient-technique
 ======================================================*/
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 .container {
   width: 100%;
   max-width: 1200px;
-  min-width: 100%;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px; }
@@ -43,14 +76,42 @@
     padding-left: 0;
     padding-right: 0; }
 
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 html {
   box-sizing: border-box; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
 
+img {
+  max-width: 100%;
+  height: auto; }
+
 body {
-  background-color: #f9fafc; }
+  background-color: #f9fafc;
+  font-family: 'Open Sans', sans-serif;
+  color: #5a5a5a;
+  font-weight: 100; }
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: black; }
+
+p {
+  margin-bottom: 50px; }
+
+
+.entry-header .wp-post-image {
+  margin-bottom: 50px; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 50px;
+  margin-bottom: 1.5rem;
+  font-size: 50px;
+  color: #777777; }
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #777777; }
 
 main {
   margin: 0; }
@@ -62,9 +123,6 @@ main {
   margin-bottom: 80px;
   position: relative;
   background: white; }
-  .post .entry-content:first-letter {
-    font-size: 300%;
-    color: blueviolet; }
 
 .entry-content {
   padding: 40px 50px; }
@@ -78,6 +136,8 @@ main {
 .site-header {
   position: relative; }
 
+.site-menu {
+  display: none; }
 
 .skip-link {
   display: none; }
