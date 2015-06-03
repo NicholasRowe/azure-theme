@@ -1,4 +1,4 @@
-@import "reset";
+@import "normalize";
 @import "mixins";
 @import "framework";
 
@@ -32,27 +32,15 @@ a {
 
 p {
 	margin-bottom: 50px;
+	line-height: 30px;
 }
 
 .entry-title {
 
 }
 
-.entry-header {
-	.wp-post-image {
-		margin-bottom: 50px;
-	}
-}
 
-h1, h2, h3, h4, h5, h6 {
-	margin-bottom: 50px;
-	margin-bottom: 1.5rem;
-	font-size: 50px;
-	color: #777777;
-	a {
-		color: #777777;
-	}
-}
+
 
 
 main {
@@ -64,36 +52,90 @@ aside {
 	// @include column(4);
 }
 
+
+// a post
 .post  {
 	-webkit-box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09);
 	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09);
 	margin-bottom: 80px;
 	position: relative;
 	background: #fff;
-	.entry-content {
 
-		p {
+	.entry-header {
+		position: relative;
+
+		.wp-post-image {
+			// margin-bottom: 50px;
+		}
+
+		.entry-title {
+			text-align: center;
+		}
+
+	}
+
+	.entry-meta {
+		
+		padding: 18px;
+		overflow: hidden;
+
+		@media #{$medium-up} {
+
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			color: $w;
+			
+			/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+			background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjMiLz4KICAgIDxzdG9wIG9mZnNldD0iNjglIiBzdG9wLWNvbG9yPSIjYWRhZGFkIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+			background: -moz-linear-gradient(top,  rgba(0,0,0,0.3) 0%, rgba(173,173,173,0) 68%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.3)), color-stop(68%,rgba(173,173,173,0)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  rgba(0,0,0,0.3) 0%,rgba(173,173,173,0) 68%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  rgba(0,0,0,0.3) 0%,rgba(173,173,173,0) 68%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  rgba(0,0,0,0.3) 0%,rgba(173,173,173,0) 68%,rgba(255,255,255,0) 100%); /* IE10+ */
+			background: linear-gradient(to bottom,  rgba(0,0,0,0.3) 0%,rgba(173,173,173,0) 68%,rgba(255,255,255,0) 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d000000', endColorstr='#00ffffff',GradientType=0 ); /* IE6-8 */
+
+			a {
+				color: $w;
+			}
 
 		}
+
+		.byline,
+		.posted-on {
+			font-size: 13px;
+		}
+
+		.posted-on {
+			float: right;
+		}
+
 	}
-}
 
-.entry-content {
-	padding: 40px 50px;
+	.entry-content {
+		padding: 0 40px 40px 50px;
 
-	@media #{$medium-up} {
-		padding: 100px;
+		@media #{$medium-up} {
+			padding: 100px;
+		}
+
 	}
 
 }
 
-.entry-header {
-	text-align: center;
-}
+
+
 
 .site-header {
 	position: relative;
+	overflow: hidden;
+	margin: 20px 0;
 
+	h1 {
+		margin: 0;
+	}
 }
 
 .site-menu {
@@ -107,20 +149,21 @@ aside {
 
 
 .main-navigation {
-	padding: 2rem;
 }
 
 .menu {
 	cursor: pointer;
-	position: absolute;
-	width: 20px;
-	height: 14px;
-	top: 50%;
-	margin-top: -10px;
+	position: relative;
+	width: 38px;
+	height: 32px;
+	top: 28px;
 	border: 0;
 	background-color: transparent;
 	outline: 0;
 	padding: 0;
+	margin-right: 20px;
+	float: left;
+
 	&:hover, &:focus {
 		background-color: transparent;
 	}
@@ -129,19 +172,19 @@ aside {
 	.menu-global {
 		position: absolute;
 		left: 0;
-		border-top: 2px solid white;
+		border-top: 3px solid $primary;
 		width: 100%;
 		transition: 0.55s;
 		-webkit-transition: 0.55s;
 	}
 	.menu-top {
-		top: 0;
+		top: -4px;
 	}
 	.menu-middle {
 		top: 6px;
 	}
 	.menu-bottom {
-		top: 12px;
+		top: 16px;
 	}
 	.menu-top-click {
 		top: 6px;

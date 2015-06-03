@@ -84,7 +84,7 @@ function playground_posted_on() {
 	);
 
 	$byline = sprintf(
-		_x( 'by %s', 'post author', 'playground' ),
+		_x( 'Posted by %s', 'post author', 'playground' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -109,12 +109,12 @@ function postedOn () {
 		_x( '%s', 'post date', 'playground' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
-	echo '<span class="posted-on">' . $posted_on . '</span>';
+	echo '<span class="posted-on"> Posted on ' . $posted_on . '</span>';
 }
 
 function postedBy () {
 	$byline = sprintf(
-		_x( 'by %s', 'post author', 'playground' ),
+		_x( 'Posted by %s', 'post author', 'playground' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 

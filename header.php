@@ -27,16 +27,19 @@
 
 		<header id="masthead" class="site-header" role="banner">
 
-			<div class="site-branding">
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			</div><!-- .site-branding -->
-
-			<nav id="site-navigation" class="main-navigation" role="navigation">
+			
 			<button class="menu toggle-nav">
 				<span class="menu-global menu-top"></span>
 				<span class="menu-global menu-middle"></span>
 				<span class="menu-global menu-bottom"></span>
 			</button>
+
+				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			
+
+
+<nav id="site-navigation" class="main-navigation" role="navigation">
+
 			<?php    /**
 				* Displays a navigation menu
 				* @param array $args Arguments
