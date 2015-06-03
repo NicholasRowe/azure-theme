@@ -5,6 +5,7 @@
 *.bak
 *.swp
 Thumbs.db
+sass2
 .htaccess
 *.log
 wp-content/cache/
