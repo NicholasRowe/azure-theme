@@ -34,11 +34,11 @@
 				<span class="menu-global menu-bottom"></span>
 			</button>
 
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 
+			<nav id="site-navigation" class="main-navigation overlay" role="navigation">
 
-<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button type="button" class="overlay-close">&#10006;</button>
 
 			<?php    /**
 				* Displays a navigation menu
@@ -59,10 +59,10 @@
 					'items_wrap' => '<ul id = "%1$s" class = "%2$s">%3$s</ul>',
 					'depth' => 0,
 					'walker' => ''
-				);
-			
-				wp_nav_menu( $args ); ?>
-			</nav><!-- #site-navigation -->
-		</header><!-- #masthead -->
+					);
 
-		<div id="content" class="site-content">
+					wp_nav_menu( $args ); ?>
+				</nav><!-- #site-navigation -->
+			</header><!-- #masthead -->
+
+			<div id="content" class="site-content">

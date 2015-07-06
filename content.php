@@ -1,7 +1,7 @@
 <?php
 /**
- * @package playground
- */
+* @package playground
+*/
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -9,39 +9,30 @@
 
 		<?php if ( has_post_thumbnail() ? the_post_thumbnail() : null ) ?> 
 
-		<div class="entry-meta">
-		
-			<?php postedOn(); ?>
+			<div class="entry-meta">
 
-			<?php if ( 'post' == get_post_type() ) : ?>
-				<?php postedBy(); ?>
-			<?php endif; ?>
+				<?php postedOn(); ?>
 
-		</div>
+				<?php if ( 'post' == get_post_type() ) : ?>
+					<?php postedBy(); ?>
+				<?php endif; ?>
 
-		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+			</div>
 
-		
-	</header><!-- .entry-header -->
+			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
-	<div class="entry-content">
-		<?php
-		/* translators: %s: Name of current post */
-		the_content( sprintf(
-			__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'playground' ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
-			?>
+		</header><!-- .entry-header -->
 
+		<div class="entry-content">
 			<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'playground' ),
-				'after'  => '</div>',
+			/* translators: %s: Name of current post */
+			the_content( sprintf(
+				__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'playground' ),
+				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				) );
-				?>
-			</div><!-- .entry-content -->
+			?>
+		</div><!-- .entry-content -->
 
-			<footer class="entry-footer">
-				<?php playground_entry_footer(); ?>
-			</footer><!-- .entry-footer -->
+				<footer class="entry-footer">
+				</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

@@ -57,9 +57,14 @@ aside {
 .post  {
 	-webkit-box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09);
 	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09);
-	margin-bottom: 80px;
+	margin-bottom: 40px;
 	position: relative;
 	background: #fff;
+
+	@media #{$medium-up} {
+		margin-bottom: 80px;
+	}
+
 
 	.entry-header {
 		position: relative;
@@ -139,16 +144,64 @@ aside {
 }
 
 .site-menu {
-	display: none;
+	text-align: center;
+	position: relative;
+	top: 50%;
+	height: 60%;
+	font-size: 54px;
+	color: $w;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+		li {
+			a {
+				color: $w;
+			}
+		}
+	}
 }
 
 .skip-link {
 	display: none;
 }
 
+.overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.78);
+	z-index: 5;
+	&.open {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.5s;
+	}
+	.overlay-close {
+		width: 80px;
+		height: 80px;
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		overflow: hidden;
+		border: none;
+		color: $w;
+		outline: none;
+		z-index: 100;
+
+	}
+}
 
 
 .main-navigation {
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+	transition: opacity 0.5s, visibility 0s 0.5s;
 }
 
 .menu {

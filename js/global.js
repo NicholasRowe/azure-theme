@@ -35,12 +35,29 @@
 			Menu.el.menuTop.toggleClass('menu-top-click');
 			Menu.el.menuMiddle.toggleClass('menu-middle-click');
 			Menu.el.menuBottom.toggleClass('menu-bottom-click'); 
+			$('.main-navigation').toggleClass("open")
 		}
 	};
 
 	Menu.init();
 
 	$(document).ready(function(){
+
+
+
+
+		$( "#site-navigation" ).click(function() {
+			$('.main-navigation').addClass("open");
+		});
+
+		// need to be able to close this here
+		$( ".overlay-close" ).click(function() {
+			$('.main-navigation').removeClass("open");
+			console.log("clicked");
+		});
+		
+
+
 
 	});
 
