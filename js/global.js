@@ -35,7 +35,7 @@
 			Menu.el.menuTop.toggleClass('menu-top-click');
 			Menu.el.menuMiddle.toggleClass('menu-middle-click');
 			Menu.el.menuBottom.toggleClass('menu-bottom-click'); 
-			$('.main-navigation').toggleClass("open")
+			$('.main-navigation').toggleClass("open");
 		}
 	};
 
@@ -43,19 +43,16 @@
 
 	$(document).ready(function(){
 
-
-
-
-		$( "#site-navigation" ).click(function() {
-			$('.main-navigation').addClass("open");
-		});
-
 		// need to be able to close this here
-		$( ".overlay-close" ).click(function() {
+		$( ".overlay-close" ).click(function(e) {
+			e.preventDefault();
 			$('.main-navigation').removeClass("open");
-			console.log("clicked");
+			$(".toggle-nav").removeClass("active");
+			$('.menu-top').removeClass('menu-top-click');
+			$('.menu-middle').removeClass('menu-middle-click');
+			$('.menu-bottom').removeClass('menu-bottom-click');
+
 		});
-		
 
 
 

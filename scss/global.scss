@@ -176,6 +176,7 @@ aside {
 	left: 0;
 	background: rgba(0, 0, 0, 0.78);
 	z-index: 5;
+
 	&.open {
 		opacity: 1;
 		visibility: visible;
@@ -192,6 +193,8 @@ aside {
 		color: $w;
 		outline: none;
 		z-index: 100;
+		font-size: 60px;
+		text-align: center;
 
 	}
 }

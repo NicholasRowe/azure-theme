@@ -38,7 +38,7 @@
 
 			<nav id="site-navigation" class="main-navigation overlay" role="navigation">
 
-			<button type="button" class="overlay-close">&#10006;</button>
+			<a href="#" class="overlay-close">&times;</a>
 
 			<?php    /**
 				* Displays a navigation menu

@@ -525,7 +525,9 @@ main {
     border: none;
     color: white;
     outline: none;
-    z-index: 100; }
+    z-index: 100;
+    font-size: 60px;
+    text-align: center; }
 
 .main-navigation {
   opacity: 0;
