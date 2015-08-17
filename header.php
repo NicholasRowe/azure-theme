@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package playground
+ * @package rs
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -23,7 +23,7 @@
 
 <body <?php body_class(); ?>>
 	<div id="page" class="container hfeed site">
-		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'playground' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'rs' ); ?></a>
 
 		<header id="masthead" class="site-header" role="banner">
 

@@ -1,8 +1,8 @@
 <?php
 /**
- * playground functions and definitions
+ * rs functions and definitions
  *
- * @package playground
+ * @package rs
  */
 
 /**
@@ -12,7 +12,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( 'playground_setup' ) ) :
+if ( ! function_exists( 'rs_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -20,15 +20,15 @@ if ( ! function_exists( 'playground_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function playground_setup() {
+function rs_setup() {
 
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on playground, use a find and replace
-	 * to change 'playground' to the name of your theme in all the template files
+	 * If you're building a theme based on rs, use a find and replace
+	 * to change 'rs' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'playground', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'rs', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -50,7 +50,7 @@ function playground_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'playground' ),
+		'primary' => __( 'Primary Menu', 'rs' ),
 		) );
 
 	/*
@@ -70,22 +70,22 @@ function playground_setup() {
 		) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'playground_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'rs_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 		) ) );
 }
-endif; // playground_setup
-add_action( 'after_setup_theme', 'playground_setup' );
+endif; // rs_setup
+add_action( 'after_setup_theme', 'rs_setup' );
 
 /**
  * Register widget area.
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function playground_widgets_init() {
+function rs_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'playground' ),
+		'name'          => __( 'Sidebar', 'rs' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -94,7 +94,7 @@ function playground_widgets_init() {
 		'after_title'   => '</h1>',
 		) );
 }
-add_action( 'widgets_init', 'playground_widgets_init' );
+add_action( 'widgets_init', 'rs_widgets_init' );
 
 /**
  * Implement the Custom Header feature.
@@ -142,18 +142,18 @@ function rs_load_azure_scripts() {
 add_action( 'wp_enqueue_scripts', 'rs_load_azure_scripts' );
 
 
-function serene_custom_excerpt_length( $length ) {
+function rs_custom_excerpt_length( $length ) {
 	return 90;
 }
-add_filter( 'excerpt_length', 'serene_custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'rs_custom_excerpt_length', 999 );
 
-function serene_excerpt_more( $more ) {
+function rs_excerpt_more( $more ) {
 	return sprintf( '...<a class="read-more" href="%s">%s</a>',
 		get_permalink( get_the_ID() ),
 		esc_html__( 'read more', 'Serene' )
 	);
 }
-add_filter( 'excerpt_more', 'serene_excerpt_more' );
+add_filter( 'excerpt_more', 'rs_excerpt_more' );
 
 if ( ! function_exists( 'rs_azure_fonts_url' ) ) :
 function rs_azure_fonts_url() {
@@ -189,3 +189,12 @@ function rs_azure_load_fonts() {
 		wp_enqueue_style( 'serene-fonts', esc_url_raw( $fonts_url ), array(), null );
 }
 add_action( 'wp_enqueue_scripts', 'rs_azure_load_fonts' );
+
+function simple_callback() 
+{
+    print '<li>' . get_comment_author_link() . '<br>';
+    comment_text();
+    echo "string";
+
+}
+wp_list_comments( array ( 'callback' => 'simple_callback' ) );

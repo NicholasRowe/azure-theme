@@ -4,7 +4,7 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package playground
+ * @package rs
  */
 ?>
 
@@ -14,9 +14,9 @@
 
 <footer id="colophon" class="site-footer" role="contentinfo">
 	<div class="site-info">
-		<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'playground' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'playground' ), 'WordPress' ); ?></a>
+		<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'rs' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'rs' ), 'WordPress' ); ?></a>
 		<span class="sep"> | </span>
-		<?php printf( __( 'Theme: %1$s by %2$s.', 'playground' ), 'playground', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+		<?php printf( __( 'Theme: %1$s by %2$s.', 'rs' ), 'rs', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->
 

@@ -17,7 +17,23 @@
 
 // colours
 $w: #ffffff;
-$primary: #696d73;
+$primary: #56595D;
+
+// functions
+// originally in https://github.com/zurb/foundation/blob/master/scss/foundation/_functions.scss
+@function lower-bound($range){
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range,1);
+}
+
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 999999999999;
+  }
+  @return nth($range, 2);
+}
 
 $small-range: (0em, 40em);
 $medium-range: (40.063em, 64em);

@@ -27,23 +27,52 @@ body {
 a {
 	text-decoration: none;
 	font-weight: 600;
-	color: #000;
+	color: $primary;
+	&:hover {
+		color: darken($primary, 5%);
+	}
 }
 
 p {
 	margin-bottom: 50px;
 	line-height: 30px;
+	@media #{$medium-up} {
+		font-size: 23px;
+		line-height: 56px;
+	}
 }
 
-.entry-title {
 
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
 }
 
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+	clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+ .cf {
+ 	*zoom: 1;
+ }
 
 
 
 
-main {
+ main {
 	// @include column(12);
 	margin: 0;
 }
@@ -52,6 +81,17 @@ aside {
 	// @include column(4);
 }
 
+.btn {
+	background-color: $primary;
+	color: $w;
+	padding: 24px 40px;
+	-webkit-appearance: none;
+	outline: 0;
+	font-size: 18px;
+	color: $w;
+
+
+}
 
 // a post
 .post  {
@@ -75,8 +115,17 @@ aside {
 
 		.entry-title {
 			text-align: center;
+			margin-top: 0;
+			@media #{$large-up} {
+				margin-top: 120px;
+			}
+
 		}
 
+	}
+
+	.entry-footer {
+		padding: 0px 100px 50px 100px;
 	}
 
 	.entry-meta {
@@ -84,7 +133,10 @@ aside {
 		padding: 18px;
 		overflow: hidden;
 
+		text-align: center;
+
 		@media #{$medium-up} {
+			text-align: left;
 
 			position: absolute;
 			top: 0;
@@ -110,11 +162,20 @@ aside {
 
 		.byline,
 		.posted-on {
-			font-size: 13px;
+			display: block;
+			@media #{$medium-up} {
+				font-size: 18px;
+			}
 		}
 
 		.posted-on {
-			float: right;
+			margin-bottom: 20px;
+			@media #{$medium-up} {
+				float: right;
+				margin-bottom: 0;
+
+			}
+
 		}
 
 	}
@@ -123,11 +184,36 @@ aside {
 		padding: 0 40px 40px 50px;
 
 		@media #{$medium-up} {
-			padding: 100px;
+			padding: 50px 100px 100px 100px;
+
 		}
 
 	}
 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+}
+
+h1 {
+	margin: 50px 0;
+	font-size: 50px;
+}
+
+h2 {
+	margin: 42px 0;
+	font-size: 42px;
+}
+
+h3 {
+	margin: 34px 0;
+	font-size: 34px;
 }
 
 
@@ -259,4 +345,146 @@ aside {
 		transition: 0.55s 0.5s;
 		-webkit-transition: 0.55s 0.5s;
 	}
+}
+
+.comments-area {
+	-webkit-box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09);
+	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09);
+	margin-bottom: 40px;
+	position: relative;
+	background: white;
+	padding: 100px;
+
+	.comments-title {
+		font-size: 50px;
+		margin: 100px 0;
+		margin-top: 0;
+	}
+
+	.comment-reply-title {
+		font-size: 50px;
+		margin: 0;
+	}
+
+	.comment-notes {
+		margin: 100px 0;
+		margin-top: 0;
+	}
+
+}
+
+.comment-form {
+	label {
+		@extend .screen-reader-text;
+	}
+
+
+	.submit {
+		background-color: $primary;
+		color: $w;
+	}
+
+	textarea {
+		width: 85%;
+	}
+
+}
+
+input[type="text"],
+input[type="url"],
+input[type="email"],
+textarea {
+	-webkit-appearance: none;
+	outline: 0;
+
+
+	background-color: white;
+	border: 0;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+	background-color: #fff;
+	padding: 24px 40px;
+	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.05);
+	border: none;
+	font-size: 18px;
+	color: #292929;
+	font-weight: 300;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.comment-list {
+
+	.comment  {
+		position: relative;
+		min-height: 150px;
+		margin-bottom: 80px;
+		padding-bottom: 80px;
+		overflow: hidden;
+		&.parent {
+			border-bottom: 1px solid grey;
+
+		}
+	}
+
+	padding: 0;
+	list-style-type: none;
+
+	.avatar  {
+		width: 64px;
+		height: 64px;
+		float: left;
+		margin-right: 20px;
+		border-radius: 50%;
+	}
+
+	.edit-link {
+		display: none;
+	}
+
+	.says {
+		display: none;
+	}
+
+	.fn {
+		font-size: 28px;
+	}
+
+	.comment-body {
+		@extend .cf;
+	}
+
+	.comment-reply-link {
+		@extend .btn;
+		float: right;	
+	}
+
+	.comment-content {
+
+		position: relative;
+	}
+
+	.comment-meta {
+		
+	}
+}
+
+.children {
+	padding: 0 0 0 0px;
+	clear: both;
+	list-style-type: none;
+
+	@media #{$medium-up} {
+		padding: 0 0 0 50px;
+	}
+
+	.comment {
+		padding-bottom: 0;
+		margin: 0;
+	}
+
+
+
 }

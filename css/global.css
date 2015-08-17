@@ -415,16 +415,53 @@ body {
 a {
   text-decoration: none;
   font-weight: 600;
-  color: black; }
+  color: #56595d; }
+  a:hover {
+    color: #4a4c50; }
 
 p {
   margin-bottom: 50px;
   line-height: 30px; }
+  @media only screen and (min-width:40.063em) {
+    p {
+      font-size: 23px;
+      line-height: 56px; } }
 
+.screen-reader-text, .comment-form label {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden; }
+
+.cf:before, .cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.cf:after {
+  clear: both; }
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf, .comment-list .comment-body {
+  *zoom: 1; }
 
 main {
   margin: 0; }
 
+
+.btn, .comment-list .comment-reply-link {
+  background-color: #56595d;
+  color: white;
+  padding: 24px 40px;
+  -webkit-appearance: none;
+  outline: 0;
+  font-size: 18px;
+  color: white; }
 
 .post {
   -webkit-box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09);
@@ -432,18 +469,26 @@ main {
   margin-bottom: 40px;
   position: relative;
   background: white; }
-  @media only screen and (min-width:lower-bound(40.063em, 64em)) {
+  @media only screen and (min-width:40.063em) {
     .post {
       margin-bottom: 80px; } }
   .post .entry-header {
     position: relative; }
     .post .entry-header .entry-title {
-      text-align: center; }
+      text-align: center;
+      margin-top: 0; }
+      @media only screen and (min-width:64.063em) {
+        .post .entry-header .entry-title {
+          margin-top: 120px; } }
+  .post .entry-footer {
+    padding: 0px 100px 50px 100px; }
   .post .entry-meta {
     padding: 18px;
-    overflow: hidden; }
-    @media only screen and (min-width:lower-bound(40.063em, 64em)) {
+    overflow: hidden;
+    text-align: center; }
+    @media only screen and (min-width:40.063em) {
       .post .entry-meta {
+        text-align: left;
         position: absolute;
         top: 0;
         left: 0;
@@ -468,14 +513,36 @@ main {
         .post .entry-meta a {
           color: white; } }
     .post .entry-meta .byline, .post .entry-meta .posted-on {
-      font-size: 13px; }
+      display: block; }
+      @media only screen and (min-width:40.063em) {
+        .post .entry-meta .byline, .post .entry-meta .posted-on {
+          font-size: 18px; } }
     .post .entry-meta .posted-on {
-      float: right; }
+      margin-bottom: 20px; }
+      @media only screen and (min-width:40.063em) {
+        .post .entry-meta .posted-on {
+          float: right;
+          margin-bottom: 0; } }
   .post .entry-content {
     padding: 0 40px 40px 50px; }
-    @media only screen and (min-width:lower-bound(40.063em, 64em)) {
+    @media only screen and (min-width:40.063em) {
       .post .entry-content {
-        padding: 100px; } }
+        padding: 50px 100px 100px 100px; } }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; }
+
+h1 {
+  margin: 50px 0;
+  font-size: 50px; }
+
+h2 {
+  margin: 42px 0;
+  font-size: 42px; }
+
+h3 {
+  margin: 34px 0;
+  font-size: 34px; }
 
 .site-header {
   position: relative;
@@ -552,7 +619,7 @@ main {
   .menu .menu-global {
     position: absolute;
     left: 0;
-    border-top: 3px solid #696d73;
+    border-top: 3px solid #56595d;
     width: 100%;
     transition: 0.55s;
     -webkit-transition: 0.55s; }
@@ -576,3 +643,85 @@ main {
     -webkit-transform: rotate(-410deg);
     transition: 0.55s 0.5s;
     -webkit-transition: 0.55s 0.5s; }
+
+.comments-area {
+  -webkit-box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09);
+  box-shadow: 0 1px 40px rgba(0, 0, 0, 0.09);
+  margin-bottom: 40px;
+  position: relative;
+  background: white;
+  padding: 100px; }
+  .comments-area .comments-title {
+    font-size: 50px;
+    margin: 100px 0;
+    margin-top: 0; }
+  .comments-area .comment-reply-title {
+    font-size: 50px;
+    margin: 0; }
+  .comments-area .comment-notes {
+    margin: 100px 0;
+    margin-top: 0; }
+
+.comment-form .submit {
+  background-color: #56595d;
+  color: white; }
+.comment-form textarea {
+  width: 85%; }
+
+input[type="text"], input[type="url"], input[type="email"], textarea {
+  -webkit-appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  padding: 24px 40px;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.05);
+  border: none;
+  font-size: 18px;
+  color: #292929;
+  font-weight: 300;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.comment-list {
+  padding: 0;
+  list-style-type: none; }
+  .comment-list .comment {
+    position: relative;
+    min-height: 150px;
+    margin-bottom: 80px;
+    padding-bottom: 80px;
+    overflow: hidden; }
+    .comment-list .comment.parent {
+      border-bottom: 1px solid grey; }
+  .comment-list .avatar {
+    width: 64px;
+    height: 64px;
+    float: left;
+    margin-right: 20px;
+    border-radius: 50%; }
+  .comment-list .edit-link {
+    display: none; }
+  .comment-list .says {
+    display: none; }
+  .comment-list .fn {
+    font-size: 28px; }
+  .comment-list .comment-reply-link {
+    float: right; }
+  .comment-list .comment-content {
+    position: relative; }
+
+.children {
+  padding: 0 0 0 0px;
+  clear: both;
+  list-style-type: none; }
+  @media only screen and (min-width:40.063em) {
+    .children {
+      padding: 0 0 0 50px; } }
+  .children .comment {
+    padding-bottom: 0;
+    margin: 0; }

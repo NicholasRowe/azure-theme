@@ -55,6 +55,20 @@
 		});
 
 
+		$("#commentform :input").each(function(index, elem) {
+			var eId = $(elem).attr("id");
+			var label = null;
+			if (eId && (label = $(elem).parents("form").find("label[for="+eId+"]")).length == 1) {
+				$(elem).attr("placeholder", $(label).text());
+	        // uncomment if you want to remove the label
+	        // it's best practive to keep the label, just visually hide it
+	        //$(label).remove();
+		    }
+		});
+
+		
+
+
 
 	});
 

@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features
  *
- * @package playground
+ * @package rs
  */
 
 /**
@@ -13,11 +13,11 @@
  * @param array $args Configuration arguments.
  * @return array
  */
-function playground_page_menu_args( $args ) {
+function rs_page_menu_args( $args ) {
 	$args['show_home'] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'playground_page_menu_args' );
+add_filter( 'wp_page_menu_args', 'rs_page_menu_args' );
 
 /**
  * Adds custom classes to the array of body classes.
@@ -25,7 +25,7 @@ add_filter( 'wp_page_menu_args', 'playground_page_menu_args' );
  * @param array $classes Classes for the body element.
  * @return array
  */
-function playground_body_classes( $classes ) {
+function rs_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -33,7 +33,7 @@ function playground_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'playground_body_classes' );
+add_filter( 'body_class', 'rs_body_classes' );
 
 if ( ! function_exists( '_wp_render_title_tag' ) ) :
 	/**
@@ -43,7 +43,7 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) :
 	 * @param string $sep Optional separator.
 	 * @return string The filtered title.
 	 */
-	function playground_wp_title( $title, $sep ) {
+	function rs_wp_title( $title, $sep ) {
 		if ( is_feed() ) {
 			return $title;
 		}
@@ -61,12 +61,12 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) :
 
 		// Add a page number if necessary:
 		if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-			$title .= " $sep " . sprintf( __( 'Page %s', 'playground' ), max( $paged, $page ) );
+			$title .= " $sep " . sprintf( __( 'Page %s', 'rs' ), max( $paged, $page ) );
 		}
 
 		return $title;
 	}
-	add_filter( 'wp_title', 'playground_wp_title', 10, 2 );
+	add_filter( 'wp_title', 'rs_wp_title', 10, 2 );
 endif;
 
 if ( ! function_exists( '_wp_render_title_tag' ) ) :
@@ -76,10 +76,10 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) :
 	 * @link https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
 	 * @todo Remove this function when WordPress 4.3 is released.
 	 */
-	function playground_render_title() {
+	function rs_render_title() {
 		echo '<title>' . wp_title( '|', false, 'right' ) . "</title>\n";
 	}
-	add_action( 'wp_head', 'playground_render_title' );
+	add_action( 'wp_head', 'rs_render_title' );
 endif;
 
 /**
@@ -94,11 +94,11 @@ endif;
  * @global WP_Query $wp_query WordPress Query object.
  * @return void
  */
-function playground_setup_author() {
+function rs_setup_author() {
 	global $wp_query;
 
 	if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
 		$GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
 	}
 }
-add_action( 'wp', 'playground_setup_author' );
+add_action( 'wp', 'rs_setup_author' );

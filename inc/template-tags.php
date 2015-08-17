@@ -4,29 +4,29 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package playground
+ * @package rs
  */
 
-if ( ! function_exists( 'playground_paging_nav' ) ) :
+if ( ! function_exists( 'rs_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  */
-function playground_paging_nav() {
+function rs_paging_nav() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
 	}
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'playground' ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'rs' ); ?></h1>
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'playground' ) ); ?></div>
+			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'rs' ) ); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'playground' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'rs' ) ); ?></div>
 			<?php endif; ?>
 
 		</div><!-- .nav-links -->
@@ -35,11 +35,11 @@ function playground_paging_nav() {
 }
 endif;
 
-if ( ! function_exists( 'playground_post_nav' ) ) :
+if ( ! function_exists( 'rs_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
  */
-function playground_post_nav() {
+function rs_post_nav() {
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
@@ -49,11 +49,11 @@ function playground_post_nav() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'playground' ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'rs' ); ?></h1>
 		<div class="nav-links">
 			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'playground' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'playground' ) );
+				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'rs' ) );
+				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'rs' ) );
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -61,39 +61,10 @@ function playground_post_nav() {
 }
 endif;
 
-if ( ! function_exists( 'playground_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function playground_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-	}
-
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
-	);
-
-	$posted_on = sprintf(
-		_x( 'Posted on %s', 'post date', 'playground' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
-
-	$byline = sprintf(
-		_x( 'Posted by %s', 'post author', 'playground' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
-
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>';
-
-}
-endif;
-
-function postedOn () {
+function posted_on () {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -106,48 +77,48 @@ function postedOn () {
 	);
 
 	$posted_on = sprintf(
-		_x( '%s', 'post date', 'playground' ),
+		_x( '%s', 'post date', 'rs' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 	echo '<span class="posted-on"> Posted on ' . $posted_on . '</span>';
 }
 
-function postedBy () {
+function posted_by () {
 	$byline = sprintf(
-		_x( 'Posted by %s', 'post author', 'playground' ),
+		_x( 'Posted by %s', 'post author', 'rs' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
 	echo '<span class="byline"> ' . $byline . '</span>';
 }
 
-if ( ! function_exists( 'playground_entry_footer' ) ) :
+if ( ! function_exists( 'rs_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function playground_entry_footer() {
+function rs_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( __( ', ', 'playground' ) );
-		if ( $categories_list && playground_categorized_blog() ) {
-			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'playground' ) . '</span>', $categories_list );
+		$categories_list = get_the_category_list( __( ', ', 'rs' ) );
+		if ( $categories_list && rs_categorized_blog() ) {
+			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'rs' ) . '</span>', $categories_list );
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', __( ', ', 'playground' ) );
+		$tags_list = get_the_tag_list( '', __( ', ', 'rs' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'playground' ) . '</span>', $tags_list );
+			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'rs' ) . '</span>', $tags_list );
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
-		comments_popup_link( __( 'Leave a comment', 'playground' ), __( '1 Comment', 'playground' ), __( '% Comments', 'playground' ) );
+		comments_popup_link( __( 'Leave a comment', 'rs' ), __( '1 Comment', 'rs' ), __( '% Comments', 'rs' ) );
 		echo '</span>';
 	}
 
-	edit_post_link( __( 'Edit', 'playground' ), '<span class="edit-link">', '</span>' );
+	edit_post_link( __( 'Edit', 'rs' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
@@ -164,43 +135,43 @@ if ( ! function_exists( 'the_archive_title' ) ) :
  */
 function the_archive_title( $before = '', $after = '' ) {
 	if ( is_category() ) {
-		$title = sprintf( __( 'Category: %s', 'playground' ), single_cat_title( '', false ) );
+		$title = sprintf( __( 'Category: %s', 'rs' ), single_cat_title( '', false ) );
 	} elseif ( is_tag() ) {
-		$title = sprintf( __( 'Tag: %s', 'playground' ), single_tag_title( '', false ) );
+		$title = sprintf( __( 'Tag: %s', 'rs' ), single_tag_title( '', false ) );
 	} elseif ( is_author() ) {
-		$title = sprintf( __( 'Author: %s', 'playground' ), '<span class="vcard">' . get_the_author() . '</span>' );
+		$title = sprintf( __( 'Author: %s', 'rs' ), '<span class="vcard">' . get_the_author() . '</span>' );
 	} elseif ( is_year() ) {
-		$title = sprintf( __( 'Year: %s', 'playground' ), get_the_date( _x( 'Y', 'yearly archives date format', 'playground' ) ) );
+		$title = sprintf( __( 'Year: %s', 'rs' ), get_the_date( _x( 'Y', 'yearly archives date format', 'rs' ) ) );
 	} elseif ( is_month() ) {
-		$title = sprintf( __( 'Month: %s', 'playground' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'playground' ) ) );
+		$title = sprintf( __( 'Month: %s', 'rs' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'rs' ) ) );
 	} elseif ( is_day() ) {
-		$title = sprintf( __( 'Day: %s', 'playground' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'playground' ) ) );
+		$title = sprintf( __( 'Day: %s', 'rs' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'rs' ) ) );
 	} elseif ( is_tax( 'post_format', 'post-format-aside' ) ) {
-		$title = _x( 'Asides', 'post format archive title', 'playground' );
+		$title = _x( 'Asides', 'post format archive title', 'rs' );
 	} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-		$title = _x( 'Galleries', 'post format archive title', 'playground' );
+		$title = _x( 'Galleries', 'post format archive title', 'rs' );
 	} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-		$title = _x( 'Images', 'post format archive title', 'playground' );
+		$title = _x( 'Images', 'post format archive title', 'rs' );
 	} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-		$title = _x( 'Videos', 'post format archive title', 'playground' );
+		$title = _x( 'Videos', 'post format archive title', 'rs' );
 	} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-		$title = _x( 'Quotes', 'post format archive title', 'playground' );
+		$title = _x( 'Quotes', 'post format archive title', 'rs' );
 	} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-		$title = _x( 'Links', 'post format archive title', 'playground' );
+		$title = _x( 'Links', 'post format archive title', 'rs' );
 	} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-		$title = _x( 'Statuses', 'post format archive title', 'playground' );
+		$title = _x( 'Statuses', 'post format archive title', 'rs' );
 	} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-		$title = _x( 'Audio', 'post format archive title', 'playground' );
+		$title = _x( 'Audio', 'post format archive title', 'rs' );
 	} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-		$title = _x( 'Chats', 'post format archive title', 'playground' );
+		$title = _x( 'Chats', 'post format archive title', 'rs' );
 	} elseif ( is_post_type_archive() ) {
-		$title = sprintf( __( 'Archives: %s', 'playground' ), post_type_archive_title( '', false ) );
+		$title = sprintf( __( 'Archives: %s', 'rs' ), post_type_archive_title( '', false ) );
 	} elseif ( is_tax() ) {
 		$tax = get_taxonomy( get_queried_object()->taxonomy );
 		/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
-		$title = sprintf( __( '%1$s: %2$s', 'playground' ), $tax->labels->singular_name, single_term_title( '', false ) );
+		$title = sprintf( __( '%1$s: %2$s', 'rs' ), $tax->labels->singular_name, single_term_title( '', false ) );
 	} else {
-		$title = __( 'Archives', 'playground' );
+		$title = __( 'Archives', 'rs' );
 	}
 
 	/**
@@ -248,8 +219,8 @@ endif;
  *
  * @return bool
  */
-function playground_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'playground_categories' ) ) ) {
+function rs_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'rs_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -262,27 +233,27 @@ function playground_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'playground_categories', $all_the_cool_cats );
+		set_transient( 'rs_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so playground_categorized_blog should return true.
+		// This blog has more than 1 category so rs_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so playground_categorized_blog should return false.
+		// This blog has only 1 category so rs_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in playground_categorized_blog.
+ * Flush out the transients used in rs_categorized_blog.
  */
-function playground_category_transient_flusher() {
+function rs_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// Like, beat it. Dig?
-	delete_transient( 'playground_categories' );
+	delete_transient( 'rs_categories' );
 }
-add_action( 'edit_category', 'playground_category_transient_flusher' );
-add_action( 'save_post',     'playground_category_transient_flusher' );
+add_action( 'edit_category', 'rs_category_transient_flusher' );
+add_action( 'save_post',     'rs_category_transient_flusher' );

@@ -1,6 +1,6 @@
 <?php
 /**
-* @package playground
+* @package rs
 */
 ?>
 
@@ -11,10 +11,10 @@
 
 			<div class="entry-meta">
 
-				<?php postedOn(); ?>
+				<?php posted_on(); ?>
 
 				<?php if ( 'post' == get_post_type() ) : ?>
-					<?php postedBy(); ?>
+					<?php posted_by(); ?>
 				<?php endif; ?>
 
 			</div>
@@ -26,13 +26,13 @@
 		<div class="entry-content">
 			<?php
 			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'playground' ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-				) );
+
+			the_excerpt();
+			
 			?>
 		</div><!-- .entry-content -->
 
-				<footer class="entry-footer">
-				</footer><!-- .entry-footer -->
+		<footer class="entry-footer">
+
+		</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
