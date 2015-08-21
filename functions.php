@@ -198,3 +198,6 @@ function simple_callback()
 
 }
 wp_list_comments( array ( 'callback' => 'simple_callback' ) );
+
+
+
