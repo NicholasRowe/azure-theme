@@ -125,6 +125,7 @@ aside {
 
 			@media #{$medium-up} {
 				padding: 0 100px;
+				margin-top: 100px;
 				a {
 					font-size: 50px;
 				}
@@ -364,7 +365,7 @@ h3 {
 	margin-bottom: 40px;
 	position: relative;
 	background: white;
-	padding: 40px;
+	padding: 20px;
 
 	@media #{$medium-up} {
 		padding: 100px;
@@ -373,9 +374,18 @@ h3 {
 
 
 	.comments-title {
-		font-size: 50px;
-		margin: 100px 0;
+		font-size: 32px;
+		margin: 50px 0;
 		margin-top: 0;
+
+
+		@media #{$medium-up} {
+			font-size: 50px;
+			margin: 100px 0;
+
+		}
+
+		
 	}
 
 	.comment-reply-title {
@@ -398,6 +408,7 @@ h3 {
 	input[type="text"],
 	input[type="url"],
 	input[type="email"] {
+		width: 100%;
 		@media #{$medium-up} {
 			width: 65%;
 		}
@@ -439,6 +450,15 @@ input[type="submit"]{
 
 .comment-list {
 
+	.comment-author {
+		text-align: center;
+
+		@media #{$medium-up} {
+			text-align: left;
+		}
+
+	}
+
 	.comment  {
 		position: relative;
 		min-height: 150px;
@@ -451,15 +471,42 @@ input[type="submit"]{
 		}
 	}
 
+	.comment-metadata {
+		> a {
+			> time {
+				font-size: 14px;
+				margin-top: 15px;
+				display: block;
+				border-bottom: 1px solid #ececec;
+				padding-bottom: 10px;
+				text-align: center;
+				@media #{$medium-up} {
+					font-size: 18px;
+					margin-top: 0;
+					display: inline-block;
+					border-bottom: 0;
+					padding-bottom: 0;
+					text-align: left;
+				}
+
+			}
+		}
+	}
+
 	padding: 0;
 	list-style-type: none;
 
 	.avatar  {
 		width: 64px;
 		height: 64px;
-		float: left;
-		margin-right: 20px;
+		
 		border-radius: 50%;
+		@media #{$medium-up} {
+			float: left;
+			margin-right: 20px;
+		}
+
+		
 	}
 
 	.edit-link {
@@ -472,14 +519,19 @@ input[type="submit"]{
 
 	.fn {
 		font-size: 28px;
+		display: block;
+		@media #{$medium-up} {
+			display: inline-block;
+		}
+
 	}
 
 	.comment-body {
 		@extend .cf;
 		overflow: hidden;
-		margin-bottom: 60px;
+		margin-bottom: 40px;
 		@media #{$medium-up} {
-			margin-bottom: 20px;
+			margin-bottom: 60px;
 
 		}
 
@@ -487,7 +539,13 @@ input[type="submit"]{
 
 	.comment-reply-link {
 		@extend .btn;
-		float: right;	
+		display: block;
+		text-align: center;
+		@media #{$medium-up} {
+			float: right;	
+
+		}
+
 	}
 
 	.comment-content {
@@ -501,7 +559,7 @@ input[type="submit"]{
 }
 
 .children {
-	padding: 0 0 0 0px;
+	padding: 0 0 0 20px;
 	clear: both;
 	list-style-type: none;
 	border-left: 5px solid $primary;
@@ -531,8 +589,8 @@ input[type="submit"]{
 
 	}
 
-	> a {
-		    display: block;
+	> .wp {
+		display: block;
 	}
 
 	.sep {

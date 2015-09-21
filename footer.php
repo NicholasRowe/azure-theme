@@ -15,7 +15,6 @@
 <footer id="colophon" class="site-footer" role="contentinfo">
 	<div class="site-info">
 		<a class="wp"  href="<?php echo esc_url( __( 'http://wordpress.org/', 'rs' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'rs' ), 'WordPress' );?></a>
-		<span class="sep"> | </span>
 		<?php printf( __( 'Theme: %1$s by %2$s.', 'rs' ), 'Azure', '<a href="http://rootshift.com/" rel="designer">Rootshift</a>' ); ?>
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->
